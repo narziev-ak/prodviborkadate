@@ -24,7 +24,15 @@ WHERE name NOT LIKE '% %';
 -- 5. Название треков, которые содержат слово «мой» или «my».
 SELECT title
 FROM tracks
-WHERE LOWER(title) LIKE '%my%';
+WHERE title
+ILIKE 'my %'
+   OR title ILIKE '% my'
+   OR title ILIKE '% my %'
+   OR title ILIKE 'my'
+   OR title ILIKE 'мой %'
+   OR title ILIKE '% мой'
+   OR title ILIKE '% мой %'
+   OR title ILIKE 'мой';
 
 
 -- Задание 3: SELECT-запросы
